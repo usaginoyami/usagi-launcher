@@ -74,7 +74,7 @@
     <string name="config_default_smart_space_calendar" translatable="false">gregorian</string>
 
     <!-- which accent color to use by default -->
-    <string name="config_default_accent_color" translatable="false">no_default</string>
+    <string name="config_default_accent_color" translatable="false">custom|#ffe50914</string>
 
     <!-- which notification dot color to use by default -->
     <string name="config_default_notification_dot_color" translatable="false">default</string>

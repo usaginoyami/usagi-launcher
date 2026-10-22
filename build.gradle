@@ -227,7 +227,7 @@ android {
 
         debug {
             applicationIdSuffix ".debug"
-            resValue("string", "derived_app_name", "Lawnchair (Debug)")
+            resValue("string", "derived_app_name", "Usagi Launcher (Debug)")
 
             manifestPlaceholders.quickstepMinSdk = "0"
             manifestPlaceholders.quickstepMaxSdk = "100000"
@@ -236,7 +236,7 @@ android {
         }
 
         release {
-            resValue("string", "derived_app_name", "Lawnchair")
+            resValue("string", "derived_app_name", "Usagi Launcher")
             minifyEnabled true
             shrinkResources true
             pseudoLocalesEnabled false
@@ -267,17 +267,17 @@ android {
         }
 
         github {
-            applicationId 'app.lawnchair'
+            applicationId 'com.usaginoyami.launcher'
             dimension "channel"
         }
 
         nightly {
-            applicationId 'app.lawnchair.nightly'
+            applicationId 'com.usaginoyami.launcher.nightly'
             dimension "channel"
         }
 
         play {
-            applicationId "app.lawnchair.play"
+            applicationId "com.usaginoyami.launcher.play"
             dimension "channel"
             isDefault true
         }
