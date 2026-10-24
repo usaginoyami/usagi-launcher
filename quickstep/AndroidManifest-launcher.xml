@@ -74,6 +74,9 @@
             <meta-data
                 android:name="com.android.launcher3.grid.control"
                 android:value="${applicationId}.grid_control" />
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/usagi_shortcuts" />
         </activity>
 
     </application>

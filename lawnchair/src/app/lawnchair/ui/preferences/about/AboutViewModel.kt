@@ -186,47 +186,32 @@ class AboutViewModel(
 
         private val topLinks = listOf(
             Link(
-                iconResId = R.drawable.ic_new_releases,
-                labelResId = R.string.news,
-                url = "https://t.me/lawnchairci",
-            ),
-            Link(
-                iconResId = R.drawable.ic_help,
-                labelResId = R.string.support,
-                url = "https://lawnchair.app/support",
+                iconResId = R.drawable.ic_youtube,
+                labelResId = R.string.usagi_youtube,
+                url = "https://www.youtube.com/@usaginoyami",
             ),
             Link(
                 iconResId = R.drawable.ic_github,
-                labelResId = R.string.github,
+                labelResId = R.string.usagi_source_code,
+                url = "https://github.com/usaginoyami/usagi-launcher",
+            ),
+            Link(
+                iconResId = R.drawable.ic_github,
+                labelResId = R.string.usagi_based_on_lawnchair,
                 url = "https://github.com/LawnchairLauncher/lawnchair",
-            ),
-            Link(
-                iconResId = R.drawable.ic_translate,
-                labelResId = R.string.translate,
-                url = "https://lawnchair.crowdin.com/lawnchair",
-            ),
-            Link(
-                iconResId = R.drawable.ic_open_collective,
-                labelResId = R.string.donate,
-                url = "https://opencollective.com/lawnchair",
             ),
         )
 
         private val bottomLinks = listOf(
             Link(
-                iconResId = R.drawable.ic_telegram,
-                labelResId = R.string.telegram,
-                url = "https://t.me/lccommunity",
+                iconResId = R.drawable.ic_website,
+                labelResId = R.string.usagi_twitch,
+                url = "https://www.twitch.tv/usaginoyami",
             ),
             Link(
-                iconResId = R.drawable.ic_discord,
-                labelResId = R.string.discord,
-                url = "https://discord.com/invite/3x8qNWxgGZ",
-            ),
-            Link(
-                iconResId = R.drawable.ic_x_twitter,
-                labelResId = R.string.x_twitter,
-                url = "https://x.com/lawnchairapp",
+                iconResId = R.drawable.ic_website,
+                labelResId = R.string.usagi_instagram,
+                url = "https://www.instagram.com/usaginoyami",
             ),
         )
 

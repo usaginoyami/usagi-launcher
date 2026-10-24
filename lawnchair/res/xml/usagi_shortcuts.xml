@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="usagi_youtube"
+        android:enabled="true"
+        android:icon="@drawable/ic_youtube"
+        android:shortcutShortLabel="@string/usagi_youtube"
+        android:shortcutLongLabel="@string/usagi_youtube_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://www.youtube.com/@usaginoyami" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="usagi_twitch"
+        android:enabled="true"
+        android:icon="@drawable/ic_usagi_shortcut_link"
+        android:shortcutShortLabel="@string/usagi_twitch"
+        android:shortcutLongLabel="@string/usagi_twitch_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://www.twitch.tv/usaginoyami" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="usagi_instagram"
+        android:enabled="true"
+        android:icon="@drawable/ic_usagi_shortcut_link"
+        android:shortcutShortLabel="@string/usagi_instagram"
+        android:shortcutLongLabel="@string/usagi_instagram_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://www.instagram.com/usaginoyami" />
+    </shortcut>
+</shortcuts>
