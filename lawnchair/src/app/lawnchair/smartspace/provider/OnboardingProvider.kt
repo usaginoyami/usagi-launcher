@@ -96,7 +96,7 @@ class OnboardingProvider(context: Context) :
                     id = "onboarding-swipe",
                     headerAction = SmartspaceAction(
                         id = "onboarding-swipe-action",
-                        icon = null,
+                        icon = Icon.createWithResource(context, R.drawable.ic_usagi_mark),
                         title = context.getString(R.string.onboarding_welcome),
                         subtitle = context.getString(R.string.onboarding_swipe_up),
                         pendingIntent = null,
@@ -111,7 +111,7 @@ class OnboardingProvider(context: Context) :
                     id = "onboarding-settings",
                     headerAction = SmartspaceAction(
                         id = "onboarding-settings-action",
-                        icon = Icon.createWithResource(context, R.drawable.ic_lightbulb),
+                        icon = Icon.createWithResource(context, R.drawable.ic_usagi_mark),
                         title = context.getString(R.string.onboarding_open_settings_title),
                         subtitle = context.getString(R.string.onboarding_open_settings_subtitle),
                         pendingIntent = lawnSettingsPendingIntent,
