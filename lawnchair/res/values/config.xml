@@ -159,7 +159,7 @@
     <bool name="config_default_enable_dot_pagination">true</bool>
     <bool name="config_default_enable_material_u_popup">true</bool>
     <bool name="config_default_enable_two_line_allapps">false</bool>
-    <bool name="config_default_enable_nightly_auto_updater">true</bool>
+    <bool name="config_default_enable_nightly_auto_updater">false</bool>
     <bool name="config_default_enable_folder_icon_shape_customization">false</bool>
 
     <item name="config_default_home_icon_size_factor" type="dimen" format="float">1.0</item>
