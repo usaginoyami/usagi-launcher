@@ -1,0 +1,77 @@
+name: Usagi Launcher - Build APK
+
+# Gera o APK do Usagi Launcher.
+# - Manual: aba Actions > "Usagi Launcher - Build APK" > Run workflow
+# - Automático a cada push na branch usagi-launcher
+# - Release: ao criar uma tag v* (ex.: v1.0.0), publica o APK em Releases
+on:
+  push:
+    branches:
+      - usagi-launcher
+    tags:
+      - 'v*'
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+  workflow_dispatch:
+    inputs:
+      variant:
+        description: 'Tarefa Gradle do build'
+        required: true
+        default: 'assembleLawnWithQuickstepPlayDebug'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: actions/setup-java@v6
+        with:
+          distribution: 'zulu'
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v6
+      # Assinatura com a chave do usagi (secrets do repositório).
+      # Sem os secrets, o build sai assinado com a chave de debug.
+      - name: Write sign info
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          if [ -n "$KEYSTORE_B64" ]; then
+            echo "$KEYSTORE_B64" | base64 --decode > "$GITHUB_WORKSPACE/key.jks"
+            {
+              echo "storePassword=$KEYSTORE_PASSWORD"
+              echo "keyAlias=$KEY_ALIAS"
+              echo "keyPassword=$KEY_PASSWORD"
+              echo "storeFile=$GITHUB_WORKSPACE/key.jks"
+            } > keystore.properties
+            echo "Assinando com a chave do usagi."
+          else
+            echo "Sem keystore nos secrets: usando a chave de debug."
+          fi
+      - name: Build APK
+        env:
+          TASK: ${{ inputs.variant || 'assembleLawnWithQuickstepPlayDebug' }}
+        run: ./gradlew "$TASK"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: UsagiLauncher-APK
+          path: build/outputs/apk/**/*.apk
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          shopt -s globstar
+          gh release create "$TAG" build/outputs/apk/**/*.apk \
+            --title "Usagi Launcher $TAG" \
+            --generate-notes
